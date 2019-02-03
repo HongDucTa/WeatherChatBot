@@ -8,6 +8,7 @@ const r1 = Readline.createInterface({
 });
 
 const matcher = require('./matcher');
+const weather = require("./weather");
 
 r1.setPrompt('> ');
 r1.prompt();
@@ -19,7 +20,7 @@ r1.on('line',reply => {
             {
                 case 'Hello':
                 {
-                    console.log('Hello you too !');
+                    console.log('Hello to you too !');
                     break;
                 }
                 case 'Exit':
@@ -32,9 +33,18 @@ r1.on('line',reply => {
                     console.log('I\'m fine. Thanks for asking.');
                     break;
                 }
-                case 'Current Weather':
+                case 'CurrentWeather':
                 {
-                    console.log('Sorry I don\'t know the weather in ' + cb.entities.City);
+                    weather(cb.entities.City).then(function(weatherConditions)
+                    {
+                        console.log(weatherConditions.current.condition.text);
+                    }
+                    );
+                    break;
+                }
+                case 'CurrentTime':
+                {
+                    console.log('The current time in ' + cb.entities.City + ' is :');
                     break;
                 }
                 default:

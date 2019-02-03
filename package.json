@@ -9,6 +9,7 @@
   "author": "Hong Duc TA",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
     "xregexp": "^4.2.4"
   }
 }

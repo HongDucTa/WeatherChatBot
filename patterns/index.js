@@ -14,7 +14,11 @@ const patternDict = [
     },
     {
         pattern: '\\b(how|what) (is) (the) (weather) (in) (?<City>([A-Z]\\w+) ?([A-Z]\\w+?))\\b',
-        intent: 'Current Weather'
+        intent: 'CurrentWeather'
+    },
+    {
+        pattern: '\\b(what) (is) (the) (time) (in) (?<City>([A-Z]\\w+) ?([A-Z]\\w+?))\\b',
+        intent: 'CurrentTime'
     }
 ];
 
