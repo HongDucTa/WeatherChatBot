@@ -17,8 +17,16 @@ const patternDict = [
         intent: 'CurrentWeather'
     },
     {
-        pattern: '\\b(what) (is) (the) (time) (in) (?<City>([A-Z]\\w+) ?([A-Z]\\w+?))\\b',
+        pattern: '\\b(what) (is) (the) (time) (in) (?<City>(\\w+) ?(\\w+?))\\b',
         intent: 'CurrentTime'
+    },
+    {
+        pattern: '\\b(is) (it) (?<Weather>([a-z]\\w+)) (in) (?<City>(\\w+) ?(\\w+?))\\b',
+        intent: 'CurrentWeatherStatus'
+    },
+    {
+        pattern: '\\b(will) (it) (be) (?<Weather>\\w+) (in) (?<City>(\\w+) ?(\\w+?))\\b ((in) (?<ForecastTime>\\d) (days?))',
+        intent: 'ForecastWeatherStatus'
     }
 ];
 

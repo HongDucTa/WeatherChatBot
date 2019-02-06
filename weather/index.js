@@ -13,7 +13,7 @@ const getWeather = location =>
                     params: {
                         key: apikey,
                         q: location,
-                        days: 3
+                        days: 10
                     }
                 }
             );
