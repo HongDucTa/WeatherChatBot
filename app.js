@@ -1,5 +1,7 @@
 'use strict';
 
+console.log('Information: text color only works when used in a web browser. Otherwise \%c will appear');
+
 const Readline = require('readline');
 const r1 = Readline.createInterface({
     input: process.stdin,
@@ -62,7 +64,10 @@ r1.on('line',reply => {
                         r1.setPrompt('> ');
                         r1.prompt();
                     }
-                    );
+                    ).catch(function(error)
+                    {
+                        console.log('I am sorry. I couldn\'t get the place.');
+                    });
                     break;
                 }
                 case 'CurrentTime':
@@ -73,7 +78,13 @@ r1.on('line',reply => {
                         console.log('The current time in ' + cb.entities.City + ' is : %c' + localTime,'color: red;');
                         r1.setPrompt('> ');
                         r1.prompt();
-                    })
+                        
+                    }).catch(function(error)
+                    {
+                        console.log('I am sorry. I couldn\'t get the place.');
+                        r1.setPrompt('> ');
+                        r1.prompt();
+                    });
                     break;
                 }
                 case 'CurrentWeatherStatus':
@@ -84,6 +95,9 @@ r1.on('line',reply => {
                         console.log('The current weather in ' + result.location.name + ' is: %c' + weather,'color: red;');
                         r1.setPrompt('> ');
                         r1.prompt();
+                    }).catch(function(error)
+                    {
+                        console.log('I am sorry. I couldn\'t get the place.');
                     })
                     break;
                 }
@@ -116,6 +130,9 @@ r1.on('line',reply => {
                             }
                             r1.setPrompt('> ');
                             r1.prompt();
+                        }).catch(function(error)
+                        {
+                            console.log('I am sorry. I couldn\'t get the place.');
                         })
                     }
                     break;
